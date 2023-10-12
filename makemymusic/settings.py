@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # config("SECRET_KEY")
-SECRET_KEY = 'django-insecure-)rvuc3$g4=nz8#l=^m6#7m$#fe8%8rk=fe@+jdckx+^ij47yf-'
+SECRET_KEY = '*****************'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -166,7 +166,7 @@ AUTH_USER_MODEL = 'authentication.User'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-GOOGLE_RECAPTCHA_SECRET_KEY = "6LeiFcYiAAAAAPAbLHkGcruw1LK1D9iuDvMhU3C9"
+GOOGLE_RECAPTCHA_SECRET_KEY = "*******************"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -216,5 +216,5 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SOCIAL_AUTH_FACEBOOK_KEY = '421017013567043'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET ='ab202c220a7f54938321a9f5ef0efd50' #app key
+SOCIAL_AUTH_FACEBOOK_KEY = '************'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='*************' #app key
