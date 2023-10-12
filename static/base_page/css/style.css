@@ -1,0 +1,54 @@
+body{
+    background-color:snow;
+    margin: 12px 12px 0 12px;
+}
+.nav-link{
+    font-size: large;
+}
+
+/* container to extend righ edge */
+@media (min-width:768px){
+    .container-right {
+      margin-right: 0;
+      margin-left: calc(50vw - 375px);
+    }   
+    #navbarSupportedContent{
+        display: block;
+    }
+  }
+  
+  @media (min-width:992px){
+    .container-right {
+      margin-right: 0;
+      margin-left: calc(50vw - 485px);
+    }
+  }
+  
+  @media (min-width:1200px){
+    .container-right {
+      margin-right: 0;
+      margin-left: calc(50vw - 585px);
+    }
+  }
+
+  .base_tagline{
+    font-size:xx-large;
+    padding-top: 13%;
+    color:slategrey;
+    padding-bottom: 5%;
+  }
+
+  #fontbigbold{
+    font-size:x-large;
+  }
+
+  .copyrights{
+    padding-top: 16%;
+    font-size: smaller;
+  }
+
+  .musicians_image{
+        padding-top: 10%;
+        height: 68%;
+        width: 84%;
+  }

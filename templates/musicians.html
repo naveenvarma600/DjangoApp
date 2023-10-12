@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+
+    <!-- <h1>search bar</h1> -->
+    <form  method="post" action="" class="form-inline" >
+        {% csrf_token %}
+      <div class="form-group mx-auto">
+        <input class="form-control mr-sm-2 " name="srchname" type="text" placeholder="enter musician name here" aria-label="Search">
+        <!-- <p style="display: inline;">Genre:</p>  -->
+            <label for="genre">Genre:</label>
+            <select name="genre" id="genre">
+                <option hidden>choose</option>
+                {% for i in genrechoices %}
+                      <option value="{{i.0}}" name="{{i.0}}" id="{{i.0}}">{{i.0}}</option>       
+                {% endfor %}
+            </select>
+            <p style="display: inline;">Instruments:</p> 
+            <select name="instruments">
+                <option hidden>choose</option>
+                {% for i in instrumentchoices %}
+                      <option value="{{i.0}}" name="{{i.0}}">{{i.0}}</option>       
+                {% endfor %}
+            </select>
+            <p style="display: inline;">Language:</p> 
+            <select name="language">
+                <option hidden>choose</option>
+                {% for i in Language_choices %}
+                      <option value="{{i.0}}" name="{{i.0}}">{{i.0}}</option>       
+                {% endfor %}
+            </select>
+            
+            <input type="checkbox" name="toprated" />Top-Rated
+            <br>
+        <button class="btn btn-info " type="submit">Search</button>
+      </div>
+    </form>
+
+    
+
+
+
+
+
+    <div class="container" style="padding-left: 18%;">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            {% if empty %}
+            <p>No user found</p>
+            {% else %}
+            <div class="col-md-8 mt-3 left">
+                {% for musician in musicianprofiles %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                         <h2 class="card-title" style="display: inline;">{{ musician.full_name }}</h2>
+                         <img src="{{ musician.dp.url }}" alt="Avatar" class="img-fluid my-5" style="width: 30px;border-radius: 20%;float: right;">      
+                        <p>Language: {{musician.language}}</p>
+                         <p class="card-text text-muted h6">approx delivery time: {{ musician.max_delivery_time }} </p>
+                        <p class="card-text">{{musician.description|slice:":200" }}...</p>
+                        <a href="{% url 'ProfilePage' musician.user_name  %}" class="btn btn-primary">View Profile &rarr;</a>
+                    </div>
+                </div>
+                    
+                {% endfor %}
+
+                {% if musicianprofiles.has_other_pages %}
+                    <nav aria-label="Page navigation conatiner"></nav>
+                    <ul class="pagination justify-content-center">
+                        {% if musicianprofiles.has_previous %}
+                        <li><a href="?page={{ musicianprofiles.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                        {% endif %}
+                        {% if musicianprofiles.has_next %}
+                        <li><a href="?page={{ musicianprofiles.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+                    </ul>
+                    </nav>
+                    </div>
+                {% endif %}
+
+            </div>
+            {% endif %}
+            
+        </div>
+    </div>
+    
+{% endblock %}
